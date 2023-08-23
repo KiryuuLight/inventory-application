@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  div.pt-2
+    p.fs-5 All !{title}
+    div.row.d-flex.gap-2
+      each game in listGames
+        div.card(style='width : 500px')
+          div.card-body
+            h5.card-title !{game.name}
+            div.d-flex.align-items-center.gap-2
+              h6.card-subtitle Genre:
+              div.d-flex.gap-3
+                each genre in game.genre
+                  a(href=genre.urlPath).card-subtitle.link-primary !{genre.name}
+            
+            div.d-flex.align-items-center.gap-2
+              h6.card-subtitle Platform:
+              div.d-flex.gap-3.py-1
+                each platform in game.platform
+                  a(href=platform.urlPath).card-subtitle.link-primary !{platform.name}
+            
+            h6.card-text Description: !{game.description}
+
+            h6.card-text Quantity : !{game.quantity}
+
+            h6.card-text Price : $!{game.price}
+            
+            div.d-flex.gap-2
+              p.card-subtitle Publisher:
+              a(href=game.publisher.urlPath)= game.publisher.name 
+
+
+            div.d-flex.gap-2.pt-2
+              a(href=game.urlPath + '/update').btn.btn-success Edit
+              a(href=game.urlPath + '/delete').btn.btn-danger Delete

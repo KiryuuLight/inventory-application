@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  div.pt-2.col
+    p.fs-5 !{title}
+    form(method='POST')
+      div.mb-3
+        p.fs-5 Are you sure?
+      
+      div.d-flex.gap-2
+        input.btn.btn-success(type='submit' value='Yes')
+        a(href='/inventory/').btn.btn-primary No
+
+
+
+      if errors
+        ul
+          each error in errors
+            li.text-danger=error.message   

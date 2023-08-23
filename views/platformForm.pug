@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  div.pt-2.col
+    p.fs-5 !{title}
+    form(method='POST')
+      div.mb-3
+        label.form-label Name
+        input.form-control(value=(platform === undefined ? '' : platform.name) name='name')
+      div.mb-3
+        label.form-label Release Year
+        input.form-control(type='date' value=(platform === undefined ? '' : platform.releaseYearFormat) name='releaseYear')
+      div.mb-3
+        label.form-label Generation
+        input.form-control(value=(platform === undefined ? '' : platform.generation) name='generation')
+      
+      
+
+      
+      input.btn.btn-success(type='submit' value=action)
+
+      if errors
+        ul
+          each error in errors
+            li.text-danger=error.message   
+

@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  div.pt-2
+    p.fs-5 All !{title}
+    table.table
+      thead
+        tr
+          th Name
+          th Description
+          th Remove 
+          th Update
+      tbody
+        each genre in listGenres
+          tr
+            td !{genre.name}
+            td !{genre.description}
+            td
+              a(href=genre.urlPath + '/delete') Remove
+            td  
+              a(href=genre.urlPath + '/update') Update
+
+        

@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  div.pt-2.col
+    p.fs-5 !{title}
+    form(method='POST')
+      div.mb-3
+        label.form-label Name
+        input.form-control(value=(genre === undefined ? '' : genre.name) name='name')
+      div.mb-3
+        label.form-label Description
+        textarea.form-control(rows='4' name='description')=(genre === undefined ? '' : genre.description)  
+      
+      input.btn.btn-success(type='submit' value=action)
+
+      if errors
+        ul
+          each error in errors
+            li.text-danger=error.message   
+

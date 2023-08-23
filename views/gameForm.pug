@@ -1,0 +1,43 @@
+extends layout
+
+block content
+  div.pt-2.col
+    p.fs-5 !{title}
+    form(method='POST')
+      div.mb-3
+        label.form-label Title
+        input.form-control(value=(game === undefined ? '' : game.name) name='name')
+      div.mb-3
+        label.form-label Platform
+        each platform in newAllPlatforms
+          div.form-check
+            input.form-check-input(type='checkbox'  value=platform._id checked=platform.checked name='platform')
+            label.form-check-label(for='') !{platform.name}
+      div.mb-3
+        label.form-label.d-block Genre
+        each genre in newAllGenres
+          div.form-check.form-check-inline
+            input.form-check-input(type='checkbox'  value=genre._id checked=genre.checked name='genre')
+            label.form-check-label(for='') !{genre.name}
+      div.mb-3
+        label.form-label Publisher
+        select.form-select(name='publisher')
+          each publisher in newAllPublishers
+            option(value=publisher._id selected=publisher.checked )=publisher.name
+      div.mb-3
+        label.form-label Quantity
+        input.form-control(type='number' value=(game === undefined ? '' : game.quantity) name='quantity')
+      div.mb-3
+        label.form-label Price
+        input.form-control(type='number' value=(game === undefined ? '' : game.price) name='price' step='any')
+      div.mb-3
+        label.form-label Description
+        textarea.form-control(rows='4' name='description')=(game === undefined ? '' : game.description)
+      
+      input.btn.btn-success(type='submit' value=action)
+
+      if errors
+        ul
+          each error in errors
+            li.text-danger=error.message   
+

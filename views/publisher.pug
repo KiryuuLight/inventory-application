@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  div.pt-2
+    p.fs-5 All !{title}
+    table.table
+      thead
+        tr
+          th Name
+          th Country
+          th Founding Year
+          th Website
+          th Remove 
+          th Update
+      tbody
+        each publisher in listPublishers
+          tr
+            td !{publisher.name}
+            td !{publisher.country}
+            td !{publisher.foundingYearFormat}
+            td !{publisher.website}
+            td
+              a(href=publisher.urlPath + '/delete') Remove
+            td  
+              a(href=publisher.urlPath + '/update') Update
+
+        

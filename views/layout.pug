@@ -1,0 +1,43 @@
+doctype html
+html
+  head
+    title= title
+    link(href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous")
+    link(rel='preconnect' href='https://fonts.googleapis.com')
+    link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+    link(href='https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap' rel='stylesheet')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    
+
+  body
+
+    div.bg-primary 
+      p.text-light.text-center.fs-2.p-2.text-uppercase.fw-bold Inventory Management
+    div.container.d-flex.gap-5
+      div.pt-2
+        p Categories
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link(href='/inventory/game') Game
+          li.nav-item
+            a.nav-link(href='/inventory/genre') Genre
+          li.nav-item
+            a.nav-link(href='/inventory/platform') Platform
+          li.nav-item
+            a.nav-link(href='/inventory/publisher') Publisher
+
+        ul.nav.flex-column
+          li.nav-item
+            a.nav-link(href='/inventory/game/create') Create Game
+          li.nav-item
+            a.nav-link(href='/inventory/genre/create') Create Genre
+          li.nav-item
+            a.nav-link(href='/inventory/platform/create') Create Platform
+          li.nav-item
+            a.nav-link(href='/inventory/publisher/create') Create Publisher
+
+
+      block content
+      
+      script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous")
+

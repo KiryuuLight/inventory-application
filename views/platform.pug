@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  div.pt-2
+    p.fs-5 All !{title}
+    table.table
+      thead
+        tr
+          th Name
+          th Release Year
+          th Generation
+          th Remove 
+          th Update
+      tbody
+        each platform in listPlatforms
+          tr
+            td !{platform.name}
+            td !{platform.inputYearFormatted}
+            td !{platform.generation}
+            td
+              a(href=platform.urlPath + '/delete') Remove
+            td  
+              a(href=platform.urlPath + '/update') Update
+
+        
