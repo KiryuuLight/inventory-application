@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  div.pt-2.col
+    p.fs-5 !{title}
+    form(method='POST')
+      div.mb-3
+        label.form-label Name
+        input.form-control(value=(publisher === undefined ? '' : publisher.name) name='name')
+      div.mb-3
+        label.form-label Country
+        input.form-control(value=(publisher === undefined ? '' : publisher.country) name='country')  
+      div.mb-3
+        label.form-label Founding Year
+        input.form-control(type='date' value=(publisher === undefined ? '' : publisher.foundingYearFormat) name='foundingYear')
+      div.mb-3
+        label.form-label Website
+        input.form-control(value=(publisher === undefined ? '' : publisher.website) name='website')
+      input.btn.btn-success(type='submit' value=action)
+
+      if errors
+        ul
+          each error in errors
+            li.text-danger=error.message   
+
